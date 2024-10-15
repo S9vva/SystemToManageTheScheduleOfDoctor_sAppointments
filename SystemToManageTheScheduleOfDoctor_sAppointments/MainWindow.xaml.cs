@@ -45,6 +45,7 @@ namespace SystemToManageTheScheduleOfDoctor_sAppointments
 
             cmd.Parameters.AddWithValue("@username", username.Text);
             cmd.Parameters.AddWithValue("@password", password.Password);
+            // to do add hash
             cmd.ExecuteNonQuery();
             int Count = Convert.ToInt32(cmd.ExecuteScalar());
 
