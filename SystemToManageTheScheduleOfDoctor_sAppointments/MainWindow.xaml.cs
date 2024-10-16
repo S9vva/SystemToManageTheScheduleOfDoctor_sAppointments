@@ -1,4 +1,5 @@
-﻿using System;
+﻿using md5_hash;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -43,9 +44,11 @@ namespace SystemToManageTheScheduleOfDoctor_sAppointments
             string add_data = "SELECT * FROM [dbo].[Client] WHERE username=@username AND password=@password";
             SqlCommand cmd = new SqlCommand(add_data, sqlConnection);
 
+            var password1 = md5_sql_hash.hashPassword(password.Password);
+
             cmd.Parameters.AddWithValue("@username", username.Text);
-            cmd.Parameters.AddWithValue("@password", password.Password);
-            // to do add hash
+            cmd.Parameters.AddWithValue("@password", password1);
+
             cmd.ExecuteNonQuery();
             int Count = Convert.ToInt32(cmd.ExecuteScalar());
 

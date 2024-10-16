@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Configuration;
 using System.Data;
+using md5_hash;
 
 namespace SystemToManageTheScheduleOfDoctor_sAppointments
 {
@@ -39,8 +40,10 @@ namespace SystemToManageTheScheduleOfDoctor_sAppointments
                 string add_data = "INSERT INTO [dbo].[Client] VALUES(@username, @password)";
                 SqlCommand cmd = new SqlCommand(add_data, sqlConnection);
 
+                var password1 = md5_sql_hash.hashPassword(password.Password);
+
                 cmd.Parameters.AddWithValue("@username", username.Text);
-                cmd.Parameters.AddWithValue("@password", password.Password);
+                cmd.Parameters.AddWithValue("@password", password1);
                 cmd.ExecuteNonQuery();
                 sqlConnection.Close();
                 username.Text = string.Empty;

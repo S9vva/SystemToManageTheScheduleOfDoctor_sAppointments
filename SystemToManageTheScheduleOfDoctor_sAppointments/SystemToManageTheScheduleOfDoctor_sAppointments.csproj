@@ -85,6 +85,7 @@
     <Compile Include="MainClient.xaml.cs">
       <DependentUpon>MainClient.xaml</DependentUpon>
     </Compile>
+    <Compile Include="md5_sql_hash.cs" />
     <Compile Include="Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
     </Compile>
