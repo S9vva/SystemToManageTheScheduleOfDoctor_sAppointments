@@ -41,13 +41,13 @@ namespace SystemToManageTheScheduleOfDoctor_sAppointments
             sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["SDoctor_sDB"].ConnectionString);
             sqlConnection.Open();
 
-            string add_data = "SELECT * FROM [dbo].[Client] WHERE username=@username AND password=@password";
-            SqlCommand cmd = new SqlCommand(add_data, sqlConnection);
+            var add_data = "SELECT * FROM [dbo].[Client] WHERE username=@username AND password=@password";
+            var cmd = new SqlCommand(add_data, sqlConnection);
 
-            var password1 = md5_sql_hash.hashPassword(password.Password);
+            var hashPassword = md5_sql_hash.hashPassword(password.Password);
 
             cmd.Parameters.AddWithValue("@username", username.Text);
-            cmd.Parameters.AddWithValue("@password", password1);
+            cmd.Parameters.AddWithValue("@password", hashPassword);
 
             cmd.ExecuteNonQuery();
             int Count = Convert.ToInt32(cmd.ExecuteScalar());
@@ -57,7 +57,7 @@ namespace SystemToManageTheScheduleOfDoctor_sAppointments
             password.Password = string.Empty;
             if (Count > 0)
             {
-                MainClient mainClient = new MainClient();
+                var mainClient = new MainClient();
                 this.Close();
                 mainClient.Show();
             }
