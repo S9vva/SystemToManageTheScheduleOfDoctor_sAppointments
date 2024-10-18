@@ -22,6 +22,8 @@ namespace SystemToManageTheScheduleOfDoctor_sAppointments
     /// <summary>
     /// Logika interakcji dla klasy Register.xaml
     /// </summary>
+   
+    /// to do register datebase wirth 
     public partial class Register : Window
     {
         private SqlConnection sqlConnection = null;
@@ -37,20 +39,20 @@ namespace SystemToManageTheScheduleOfDoctor_sAppointments
                 sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["SDoctor_sDB"].ConnectionString);
                 sqlConnection.Open();
 
-                string add_data = "INSERT INTO [dbo].[Client] VALUES(@username, @password)";
-                SqlCommand cmd = new SqlCommand(add_data, sqlConnection);
+                var add_data = "INSERT INTO [dbo].[Client] VALUES(@username, @password)";
+                var cmd = new SqlCommand(add_data, sqlConnection);
 
-                var password1 = md5_sql_hash.hashPassword(password.Password);
+                var hashPassword = md5_sql_hash.hashPassword(password.Password);
 
                 cmd.Parameters.AddWithValue("@username", username.Text);
-                cmd.Parameters.AddWithValue("@password", password1);
+                cmd.Parameters.AddWithValue("@password", hashPassword);
                 cmd.ExecuteNonQuery();
                 sqlConnection.Close();
                 username.Text = string.Empty;
                 password.Password = string.Empty;
-                MainWindow w1 = new MainWindow();
+                var registerData = new Register_Data();
                 this.Close();
-                w1.Show();
+                registerData.Show();
             }
 
             catch
