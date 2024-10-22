@@ -41,7 +41,7 @@ namespace SystemToManageTheScheduleOfDoctor_sAppointments
             sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["SDoctor_sDB"].ConnectionString);
             sqlConnection.Open();
 
-            var add_data = "SELECT * FROM [dbo].[Client] WHERE username=@username AND password=@password";
+            var add_data = "SELECT * FROM [dbo].[Users] WHERE username=@username AND password=@password";
             var cmd = new SqlCommand(add_data, sqlConnection);
 
             var hashPassword = md5_sql_hash.hashPassword(password.Password);
@@ -65,6 +65,11 @@ namespace SystemToManageTheScheduleOfDoctor_sAppointments
             {
                 MessageBox.Show("Password or Username is not correct");
             }
+        }
+
+        private void username_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

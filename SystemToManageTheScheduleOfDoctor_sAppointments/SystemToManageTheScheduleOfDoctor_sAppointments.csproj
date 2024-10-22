@@ -156,6 +156,7 @@
     <Resource Include="Foto\9437012.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Foto\Reg.png" />
     <Content Include="SDoctor_sDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
