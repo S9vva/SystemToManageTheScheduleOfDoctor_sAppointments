@@ -20,5 +20,19 @@
     <!-- Text Colors-->
     <SolidColorBrush x:Key="PrimaryTextColor" Color="#010101"/>
     
+    <!-- Button Colors-->
+
+    <SolidColorBrush x:Key="PrimaryBlueColorOne" Color="#304FFE"/>
+    
+    <SolidColorBrush x:Key="PrimaryTextColorOne" Color="#FFFFFF"/>
+
+    <SolidColorBrush x:Key="ButtonMouseOverColor" Color="#0026CA"/>
+
+    <SolidColorBrush x:Key="ButtonPressedColor" Color="#7A7CFF"/>
+
+    <SolidColorBrush x:Key="ButtonBorderBrushColor" Color="#0026CA"/>
+
+    <SolidColorBrush x:Key="PrimaryDarkTextColor" Color="#0026CA"/>
+
 
 </ResourceDictionary>

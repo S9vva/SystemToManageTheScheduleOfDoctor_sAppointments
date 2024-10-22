@@ -39,25 +39,26 @@ namespace SystemToManageTheScheduleOfDoctor_sAppointments
                 sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["SDoctor_sDB"].ConnectionString);
                 sqlConnection.Open();
 
-                var add_data = "INSERT INTO [dbo].[Client] VALUES(@username, @password)";
+                var add_data = "INSERT INTO [dbo].[Users] VALUES(@username, @password); SELECT SCOPE_IDENTITY();";
                 var cmd = new SqlCommand(add_data, sqlConnection);
 
                 var hashPassword = md5_sql_hash.hashPassword(password.Password);
 
                 cmd.Parameters.AddWithValue("@username", username.Text);
                 cmd.Parameters.AddWithValue("@password", hashPassword);
-                cmd.ExecuteNonQuery();
+                var newUserId = Convert.ToInt32(cmd.ExecuteScalar());
                 sqlConnection.Close();
                 username.Text = string.Empty;
                 password.Password = string.Empty;
-                var registerData = new Register_Data();
+
+                var registerData = new Register_Data(newUserId);
                 this.Close();
                 registerData.Show();
             }
 
-            catch
-            { 
-
+            catch(Exception ex) 
+            {
+                MessageBox.Show($"Wystąpił błąd: {ex.Message}");
             }
         }
     }

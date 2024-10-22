@@ -16,24 +16,32 @@
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
             <TextBlock Text="Register Page" FontSize="36"></TextBlock>
             <StackPanel Orientation="Horizontal">
-                <Border CornerRadius="25 25 25 25" Width="300" Height="50" Background="Gray">
-                    <TextBox x:Name="username"  Width="260" Text="" Background="Gray"></TextBox>
-                </Border>
+                <TextBox x:Name ="username" 
+                        Width="400"
+                        Height="40"
+                        HorizontalAlignment="Left"
+                        TextWrapping="NoWrap"
+                        VerticalAlignment="Center" Margin="20,0,0,0"
+                        Style="{DynamicResource TextBoxStyle}"/>
                 <Separator Height="100"></Separator>
                 <materialDesign:PackIcon VerticalAlignment="Center"  Kind ="Account" Width="30" Height="50"></materialDesign:PackIcon>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Border CornerRadius="25 25 25 25" Width="300" Height="50" Background="Gray">
-                    <PasswordBox x:Name="password" Width="260" Background="Gray"></PasswordBox>
-                </Border>
+                <PasswordBox x:Name ="password"                        
+                        Width="400"
+                        Height="40"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center" Margin="20,0,0,0"
+                        Style="{DynamicResource PasswordBoxStyle}"/>
                 <materialDesign:PackIcon Kind ="Password" Width="30" Height="50"></materialDesign:PackIcon>
             </StackPanel>
 
             <Separator Height="40"></Separator>
-            <Button x:Name="Register_Btn" Content="Register" Width="200" Height="50" Background="Black" Click="Register_Btn_Click"></Button>
-
-
-
+            <Button Click="Register_Btn_Click"
+                    Content="Login"
+                    VerticalAlignment="Center"
+                    Margin="20 0 0 0"
+                    Style="{DynamicResource PrimaryButtonStyle}" Width="138"/>
         </StackPanel>
 
     </Grid>

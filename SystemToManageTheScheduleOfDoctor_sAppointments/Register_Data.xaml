@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SystemToManageTheScheduleOfDoctor_sAppointments"
         mc:Ignorable="d"
-        Title="Register_Data" Height="450" Width="1000">
-
+        Title="Register_Data" Height="450" Width="700">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -40,12 +39,12 @@
             TextWrapping="NoWrap"
             VerticalAlignment="Bottom" Margin="20,0,0,0"
             Style="{DynamicResource TextBoxStyle}"/>
-        <TextBlock Text="Nazwisko"
+        <TextBlock Text="Nazwoski"
             Grid.Row="2"
             VerticalAlignment="Center"
             Margin="10 0 0 20"
             FontSize="20"/>
-        <TextBox x:Name ="LustName"
+        <TextBox x:Name ="LastName"
             Grid.Row="2"
             HorizontalAlignment="Left"
             TextWrapping="NoWrap"
@@ -90,7 +89,7 @@
             VerticalAlignment="Center"
             Margin="10 0 0 23"
             FontSize="20"/>
-        <ComboBox x:Name="DoctorComboBox"
+        <ComboBox x:Name="BloodType"
             Grid.Column="1"
             Grid.Row="1"
             HorizontalAlignment="Left"
@@ -106,13 +105,38 @@
             <ComboBoxItem Content="0+" />
             <ComboBoxItem Content="0-" />
         </ComboBox>
-        <TextBlock Text="{Binding SelectedItem.Content, ElementName=DoctorComboBox}"
+        <TextBlock Text="Data Urodzenia"
+            Grid.Column="1"
+            Grid.Row="2"
+            VerticalAlignment="Center"
+            Margin="10 20 0 0"
+            FontSize="20"/>
+        <DatePicker x:Name="BirthDatePicker" Style="{DynamicResource DatePickerStyle}" 
+                    SelectedDateFormat="Long"
+                    BorderBrush="White"
+                    Grid.Row="2" RenderTransformOrigin="0.495,0.566" Grid.ColumnSpan="2" Margin="226,56,10,31" Grid.RowSpan="2"/>
+        <TextBlock x:Name="bloodtype"
+            Text="{Binding SelectedItem.Content, ElementName=BloodType}"
             Grid.Column="1"
             FontSize="20"
             Grid.Row="1"
-            Margin="120,0,0,25" 
-            VerticalAlignment="Center"
-            Foreground="{DynamicResource SecundaryGrayColor}"/>
+            Margin="122,10,232,0" 
+            VerticalAlignment="Top"
+            Foreground="{DynamicResource SecundaryGrayColor}" Grid.ColumnSpan="2"/>
+        <Button Click="saveDataOne"
+        Grid.Column="1"
+        Grid.Row="4"
+        Content="Zapisz Dane"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        Margin="0 0 40 0"
+        Style="{DynamicResource SecundaryButtonStyle}"/>
+
+        <Image Source="Foto/Reg.png"
+               Grid.Column="1" Grid.ColumnSpan="2"
+               Margin="224,55,-9,-54" 
+               Grid.RowSpan="5" Grid.Row="1"/>
+
 
     </Grid>
 </Window>
