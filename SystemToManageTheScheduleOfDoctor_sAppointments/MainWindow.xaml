@@ -14,7 +14,7 @@
             <ColumnDefinition Width="400"></ColumnDefinition>
             <ColumnDefinition Width="400"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Image Grid.Column="1" Source="/9437012.jpg" Stretch="UniformToFill"></Image>
+        <Image Grid.Column="1" Source="Foto/9437012.jpg" Stretch="UniformToFill"></Image>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical" Grid.Column="0">
             <TextBlock Text="Login Page" FontSize="36"></TextBlock>
             <StackPanel Orientation="Horizontal">
